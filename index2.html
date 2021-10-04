@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+
+    <link
+
+      rel="stylesheet"
+
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+
+    />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+
+      rel="stylesheet">
+
+    <style>
+
+         
+
+         *{
+
+             box-sizing: border-box;
+
+         }
+
+         body{
+
+              margin: 0;
+
+         }
+
+         
+
+         #container{
+
+
+
+               height: 100vh;
+
+               width: 100vw;
+
+
+
+         }
+
+         
+
+         #firsdiv{
+
+                background-color: #333333;
+
+                height: 10%;
+
+                display: flex;
+
+         }
+
+         #seconddiv{
+
+             background-color: white;
+
+               height: 88%;
+
+         }
+
+         #filter,#action{
+
+             height: 75%;
+
+             border-radius: 0.5rem;
+
+             margin-left: 6rem;
+
+             margin-top: 1.5vh;
+
+             background-color: #444444;
+
+         }
+
+         #filter{
+
+            width: 12rem;
+
+            display: flex;
+
+         }
+
+         #action{
+
+            width: 6.5rem;
+
+            display: flex;
+
+         }
+
+         .f1{
+
+            
+
+             height: 100%;
+
+             width: 25%;
+
+
+
+         }
+
+         .f1:hover {
+
+               background-color: #393939;
+
+               border-radius: 0.5rem;
+
+           }
+
+         .f1 div {
+
+                 margin: auto;
+
+                 margin-top: 2vh;
+
+                 border-radius: 4px;
+
+                  height: 50%;
+
+                  width: 50%;
+
+            }
+
+         .pink-color-btn , .pink{
+
+             background-color: #d595aa;
+
+         }
+
+         .blue-color-btn,.blue{
+
+             background-color:#5ecdde;
+
+         }
+
+         .green-color-btn , .green{
+
+             background-color: #91e6c7;
+
+         }
+
+         .black-color-btn , .black{
+
+             background-color: black;
+
+         }
+
+         #add,#delete {
+
+            font-family: Arial;
+
+           color: white;
+
+           text-align: center;
+
+           width: 50%;
+
+            height: 100%;
+
+            cursor: pointer;
+
+            
+
+        }
+
+
+
+        #delete {
+
+             font-size: 1.3rem;
+
+             padding-top: 0.6rem;
+
+        }
+
+
+
+        #add {
+
+             font-size: 1.6rem;
+
+             padding-top: 0.6rem;
+
+        }
+
+
+
+        #add:hover,
+
+        #delete:hover {
+
+             background-color: #393939;
+
+             border-radius: 0.5rem;
+
+        }
+
+        .selected-filter{
+
+              background-color: #393939;
+
+              border-radius: 0.5rem;
+
+        }
+
+        .delete-state{
+
+             background-color: #b13939!important;
+
+             border-radius: 9px;
+
+            
+
+        }
+
+        
+
+        .icon-state{
+
+              color: #5ecdde!important;
+
+        }
+
+        .newtab{
+
+              
+
+              height: 17rem;
+
+              width: 30rem;
+
+              display: flex;
+
+              position: fixed;
+
+              top : calc((100vh - 17rem) / 2);
+
+              left: calc((100vw - 30rem) / 2);
+
+              box-shadow: 0px 5px 10px 5px #aaa;
+
+        }
+
+        .textarea{
+
+               
+
+               width: 20rem;
+
+               background-color:white;
+
+               font-size: 2rem;
+
+               padding: 30px;
+
+               font-family: Arial, Helvetica, sans-serif;
+
+               overflow: hidden;
+
+               outline: none;
+
+              
+
+               
+
+        }
+
+        .design{
+
+                
+
+                background-color: #393939;
+
+                width: 10rem;
+
+                        
+
+        }
+
+        .colordesign{
+
+               
+
+                margin: auto;
+
+                width: 45%;
+
+                height: 70%;
+
+                
+
+                display: flex;
+
+                flex-direction: column;
+
+                margin-top: 40px;
+
+                
+
+        }
+
+        .model-filter{
+
+              width:5rem;
+
+               height: 3rem;
+
+               margin-bottom: 5px;
+
+               opacity: 0.7;
+
+               border-radius: 2px;
+
+        }
+
+       
+
+        .model-filter-pink-color:hover,
+
+        .model-filter-black-color:hover,
+
+        .model-filter-green-color:hover,
+
+        .model-filter-blue-color:hover{
+
+             opacity: 1;
+
+        }
+
+        .seconddiv{
+
+              display: flex;
+
+              flex-wrap: wrap;
+
+              justify-content: space-evenly;
+
+              background: linear-gradient(132deg, #FC415A, #591BC5, #212335);
+
+              background-size: 400% 400%;
+
+              animation: Gradient 15s ease infinite;
+
+               position: relative;
+
+              height: 90vh;
+
+              width: 100%;
+
+             overflow: hidden;
+
+             padding:1rem;
+
+                margin:0px;
+
+                overflow: auto;
+
+
+
+        }
+
+        .cube{
+
+            position: absolute;
+
+            top: 50vh;
+
+            left: 45vw;
+
+             width: 10px;
+
+             height: 10px;
+
+            border: solid 1px #8c960b;
+
+               transform-origin: top left;
+
+            transform: scale(0) rotate(0deg) translate(-50%, -50%);
+
+            animation: cube 10s ease-in forwards infinite;
+
+        }
+
+         .cube:nth-child(2n) {
+
+  border-color: rgb(22, 228, 15) ;
+
+        }
+
+        .cube:nth-child(2) {
+
+  animation-delay: 1s;
+
+  left: 25vw;
+
+  top: 20vh;
+
+        }
+
+       .cube:nth-child(3) {
+
+  animation-delay: 2s;
+
+  left: 55vw;
+
+  top: 30vh;
+
+        } 
+
+        .cube:nth-child(4) {
+
+          border-color: rgb(224, 228, 15) ;
+
+  animation-delay: 3s;
+
+  left: 70vw;
+
+  top: 10vh;
+
+         }
+
+        .cube:nth-child(5) {
+
+          border-color: rgb(228, 15, 15) ;
+
+  animation-delay: 5s;
+
+  left: 10vw;
+
+  top: 40vh;
+
+       }
+
+       .cube:nth-child(6) {
+
+          border-color: rgb(228, 15, 217) ;
+
+  animation-delay: 6s;
+
+  left: 20vw;
+
+  top: 10vh;
+
+       }
+
+       .cube:nth-child(7) {
+
+          border-color: rgb(15, 161, 228) ;
+
+  animation-delay: 7s;
+
+  left: 50vw;
+
+  top: 20vh;
+
+       }
+
+       .cube:nth-child(8) {
+
+          border-color: rgb(22, 228, 15) ;
+
+  animation-delay: 8s;
+
+  left: 90vw;
+
+  top: 10vh;
+
+       }
+
+       .cube:nth-child(8) {
+
+          border-color: rgb(228, 196, 15) ;
+
+  animation-delay: 9s;
+
+  left: 80vw;
+
+  top: 60vh;
+
+       }
+
+       .cube:nth-child(8) {
+
+          border-color: rgb(228, 196, 15) ;
+
+  animation-delay: 10s;
+
+  left: 76vw;
+
+  top: 37vh;
+
+       }
+
+       .cube:nth-child(8) {
+
+          border-color: rgb(228, 196, 15) ;
+
+  animation-delay: 11s;
+
+  left: 74vw;
+
+  top: 40vh;
+
+       }
+
+        .ticket{      
+
+                width: 14rem;
+
+                height: 10rem;
+
+        }
+
+        .header{
+
+             
+
+             height: 0.8rem;
+
+             border-top-right-radius: 15px;
+
+        }
+
+        .equipment{
+
+              display: flex;
+
+              justify-content: space-around;
+
+              height: 1.5rem;
+
+        }
+
+        .ticketid{
+
+               width: 50%;
+
+               font-weight: bold;
+
+               background-color: white;
+
+               font-family: Arial, Helvetica, sans-serif;
+
+               font-size: 14px;
+
+              
+
+               color: #867878;
+
+              
+
+               
+
+        }
+
+        .awasome{
+
+             
+
+              width: 50%;
+
+              background-color: white;
+
+              display: flex;
+
+              justify-content: space-between;
+
+              
+
+        }
+
+        .material-icons{
+
+              color: rgb(51, 45, 45);
+
+              cursor: pointer;
+
+        }
+
+        .text{
+
+             
+
+              min-height: 9rem;
+
+              max-height: 15rem;
+
+             font-family: Arial, Helvetica, sans-serif;
+
+             overflow-y: auto;
+
+             background-color: white;
+
+             padding: 10px;
+
+             outline: none;
+
+             font-size: 1.2rem; 
+
+             border-bottom-left-radius: 15px;
+
+             
+
+        }
+
+       
+
+ 
+
+        .active{
+
+             border: 3px solid red;
+
+             opacity: 1;
+
+        }
+
+        @keyframes Gradient {
+
+        0% {
+
+           background-position: 0% 50%;
+
+        }
+
+        50% {
+
+            background-position: 100% 50%;
+
+         }
+
+        100% {
+
+            background-position: 0% 50%;
+
+         }
+
+     }
+
+     @keyframes cube {
+
+  from {
+
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+
+    opacity: 1;
+
+  }
+
+  to {
+
+    transform: scale(20) rotate(500deg) translate(-50%, -50%);
+
+    opacity: 0;
+
+  }
+
+}
+
+    </style> 
+
+  </head>
+
+  <body>
+
+         <div id = "container">
+
+
+
+         
+
+
+
+               <div id = "firsdiv">
+
+                     <div id="filter">
+
+                          <div class="f1">
+
+                              <div class="pink-color-btn"></div>
+
+                          </div>
+
+                          <div class="f1">
+
+                            <div class="blue-color-btn"></div>
+
+                          </div>
+
+                          <div class="f1">
+
+                            <div class="green-color-btn"></div>
+
+                          </div>
+
+                          <div class="f1">
+
+                            <div class="black-color-btn"></div>
+
+                          </div>
+
+
+
+                     </div>
+
+                     <div id="action">
+
+                          <div id="add">+</div>
+
+                          <div id="delete">x</div>
+
+                     </div>
+
+                </div>
+
+
+
+               <div class = "seconddiv">
+
+                      <!-- <div class="ticket">
+
+                            <div class = "header"></div>
+
+                            <div class = "equipment">
+
+                            <div class = "ticketid">#De45d</div>
+
+                            <div class = "awasome"><span class="material-icons lockiconbtn">lock
+
+                            </span><span class="material-icons ticketdeletebtn"> delete </span></div>
+
+                            </div>
+
+                            <div class="text" contenteditable="true"></div>
+
+                      </div> -->
+
+
+
+                      <div class="cube"></div>
+
+                      <div class="cube"></div>
+
+                      <div class="cube"></div>
+
+                      <div class="cube"></div>
+
+                     <div class="cube"></div>
+
+                     <div class="cube"></div>
+
+                     <div class="cube"></div>
+
+                     <div class="cube"></div>
+
+                     <div class="cube"></div>
+
+                     <div class="cube"></div>
+
+                     <div class="cube"></div>
+
+                     
+
+               </div>
+
+
+
+         </div>
+
+         <script src="https://cdn.jsdelivr.net/npm/short-unique-id@latest/dist/short-unique-id.min.js"></script>
+
+         <script src="script.js"></script>
+
+         <!-- <div class="newtab">
+
+
+
+          <div class="textarea" contenteditable="" ></div>
+
+          <div class="design">
+
+                <div class="colordesign">
+
+                      <div class="model-filter pink"></div>
+
+                      <div class="model-filter blue"></div>
+
+
+
+                      <div class="model green"></div>
+
+
+
+                      <div class="model black"></div>
+
+
+
+                </div>
+
+          </div> -->
+
+
+
+
+
+         </div>
+
+  </body>
+
+</html>
